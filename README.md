@@ -1,41 +1,41 @@
-## 波场靓号离线生成工具
+## Offline generation tool for TRON's vanity address
 
-完全离线的地址生成和靓号检测方案。主要依赖于 `tronweb` 的 `createAccount` 方法。
+Completely offline address generation and vanity address detection scheme. mainly depends on `tronweb`  `createAccount` funnction。
 
-> 本工具仅做技术讨论及交流，请勿将其用于非法用途！
-
----
-
-<b>广告：此版本为网页版本，速度依赖于笔记本电脑的性能,另外有秒级生成的靓号部署服务,有需要电脑联系 @VanityAddress 。</b>
+> This tool is only for technical discussion and communication, please do not use it for illegal purposes!
 
 ---
 
+<b>Advertisement: This version is a web version, and the speed depends on the performance of the laptop. In addition, there is a second-level generation of beautiful account deployment services. If you need it, contact @VanityAddress by telegram.</b>
 
-### 这个呢？
+---
 
-`vanity-address trx靓号生成器` 是完全离线的地址生成和靓号检测方案。建议你下载源码，先进行代码审计，然后离线运行该工具。
 
-关于 `tronweb`，请参阅波场官方文档：[https://cn.developers.tron.network/reference/tronweb-object](https://cn.developers.tron.network/reference/tronweb-object)
+### what about this?
 
-前端使用了 `webworker` 进行多线程处理，提升靓号生成及匹配速度。
+`vanity-address trx vanity address generator` It is a completely offline address generation and vanity number detection scheme. It is recommended that you download the source code, perform a code audit first, and then run the tool offline.
 
-### 如何运行?
+about `tronweb`，Please refer to the official documentation of TRON：[https://cn.developers.tron.network/reference/tronweb-object](https://cn.developers.tron.network/reference/tronweb-object)
 
-- 先下载本仓库源代码
-- 电脑安装 `nodejs`，版本 `>=14.16.0`。不会安装的直接百度
-- 然后安装依赖：`npm install`
-- 运行工具：`npm run dev`
-- 浏览器打开：`http://localhost:3000/tool/address`
+The front-end uses `webworker` for multi-threaded processing to improve the generation and matching speed of good numbers.
 
-然后就可以跑起来了
+### How to run?
 
-### 安全说明
+- First download the source code of this warehouse
+- Computer installation `nodejs`, version `>=14.16.0`. Baidu will not be installed directly
+- Then install dependencies: `npm install`
+- Run the tool: `npm run dev`
+- Open the browser: `http://localhost:3000/tool/address`
 
-#### 1. 依赖的三方包
+Then you can run
 
-前端项目运行会依赖于下方贴出的第三方包，详情可参考：`package.json`.
+### safety instructions
 
-> 这些依赖包均为官方包，有安全顾虑的可直接前往：`https://www.npmjs.com/` 依次查询。
+#### 1. Dependent three-party packages
+
+The operation of the front-end project will depend on the third-party package posted below. For details, please refer to: `package.json`.
+
+> These dependent packages are all official packages. If you have security concerns, you can go directly to: `https://www.npmjs.com/` to check in turn.
 
 ```javascript
 "dependencies": {
@@ -61,17 +61,17 @@
 }
 ```
 
-#### 2. 依赖的 `tronweb.js`
+#### 2. The dependent `tronweb.js`
 
-生成账号需要的 `tronweb.js` 位于项目 `public/js/tronweb.js`，做了一个小改动，兼容 `next.js` 的服务端渲染。
+The `tronweb.js` needed to generate an account is located in the project `public/js/tronweb.js`, and a small change has been made to be compatible with the server-side rendering of `next.js`.
 
-如有安全顾虑，可直接使用官方的 `tronweb.js` 与其进行比对。官方 `tronweb.js` 地址为：`https://www.npmjs.com/package/tronweb`.
+If you have security concerns, you can directly use the official `tronweb.js` for comparison. The official `tronweb.js` address is: `https://www.npmjs.com/package/tronweb`.
 
-#### 3. 关于网络请求：http://15.207.144.3:8090
+#### 3. About network requests: http://15.207.144.3:8090
 
-初始化 `tronweb` 服务，需要指定其：`fullNode` && `solidityNode`。`15.207.144.3:8090` 为官方提供的服务，详情可参考：[https://cn.developers.tron.network/docs/networks#%E5%85%AC%E5%85%B1%E8%8A%82%E7%82%B9](https://cn.developers.tron.network/docs/networks#%E5%85%AC%E5%85%B1%E8%8A%82%E7%82%B9)
+To initialize the `tronweb` service, you need to specify it: `fullNode` && `solidityNode`. `15.207.144.3:8090` is the official service, please refer to for details：[https://cn.developers.tron.network/docs/networks#%E5%85%AC%E5%85%B1%E8%8A%82%E7%82%B9](https://cn.developers.tron.network/docs/networks#%E5%85%AC%E5%85%B1%E8%8A%82%E7%82%B9)
 
-其中初始化代码为：
+The initialization code is:
 
 ```javascript
 async function generateAccount() {
@@ -85,8 +85,8 @@ async function generateAccount() {
 }
 ```
 
-> 详情可参考：`/public/js/worker.js`
+> For details, please refer to: `/public/js/worker.js`
 
-### 有问题咨询？
+### Have a question?
 
 - telegram: https://t.me/VanityAddress
