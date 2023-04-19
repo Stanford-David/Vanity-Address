@@ -1,6 +1,6 @@
 {
   "name": "vanity-address",
-  "description": "波场trx靓号生成离线工具",
+  "description": "TRON trx account generation offline tool",
   "version": "1.0.0",
   "license": "MIT",
   "private": true,
